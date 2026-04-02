@@ -1,0 +1,40 @@
+|--- distance <= 0.11
+|   |--- state_of_registration <= 18.50
+|   |   |--- kw2_art <= 0.06
+|   |   |   |--- kw2_any other <= 0.03
+|   |   |   |   |--- class: 1
+|   |   |   |--- kw2_any other >  0.03
+|   |   |   |   |--- class: 1
+|   |   |--- kw2_art >  0.06
+|   |   |   |--- class: 1
+|   |--- state_of_registration >  18.50
+|   |   |--- best_match <= 31.00
+|   |   |   |--- kw2_education <= 0.24
+|   |   |   |   |--- class: 0
+|   |   |   |--- kw2_education >  0.24
+|   |   |   |   |--- class: 0
+|   |   |--- best_match >  31.00
+|   |   |   |--- state_of_registration <= 33.00
+|   |   |   |   |--- class: 1
+|   |   |   |--- state_of_registration >  33.00
+|   |   |   |   |--- class: 1
+|--- distance >  0.11
+|   |--- kw2_housing human <= 0.19
+|   |   |--- kw1_children <= 0.46
+|   |   |   |--- kw2_children <= 0.29
+|   |   |   |   |--- class: 0
+|   |   |   |--- kw2_children >  0.29
+|   |   |   |   |--- class: 0
+|   |   |--- kw1_children >  0.46
+|   |   |   |--- kw2_drinking water <= 0.03
+|   |   |   |   |--- class: 0
+|   |   |   |--- kw2_drinking water >  0.03
+|   |   |   |   |--- class: 0
+|   |--- kw2_housing human >  0.19
+|   |   |--- kw1_human <= 0.15
+|   |   |   |--- kw1_welfare <= 0.07
+|   |   |   |   |--- class: 0
+|   |   |   |--- kw1_welfare >  0.07
+|   |   |   |   |--- class: 0
+|   |   |--- kw1_human >  0.15
+|   |   |   |--- class: 0
