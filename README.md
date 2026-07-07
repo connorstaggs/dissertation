@@ -6,7 +6,7 @@ This repository contains code and selected outputs from a chapter of my disserta
 
 India's [NGO Darpan](https://ngodarpan.gov.in/) registry contains roughly 500,000 registered civil society organizations. A small but significant subset are affiliated with the Hindu-nationalist movement (i.e. Sangh Parivar and affiliated groups). Identifying these organizations at scale is difficult: we can compile a curated list of *known* affiliates from secondary sources, but we cannot assume that every organization absent from that list is unaffiliated, as most are simply "unlabeled."
 
-To attempt to gather better data on these orgs, I employ **positive-unlabeled (PU) learning**. Standard binary classifiers trained on "known affiliates vs. everything else" would treat unlabeled affiliates as negative examples, clearly systematically biasing the decision boundary and likely massively underestimating the true prevalence of these groups.
+To attempt to gather better data on these orgs, I employ positive-unlabeled (PU) learning. Standard binary classifiers trained on "known affiliates vs. everything else" would treat unlabeled affiliates as negative examples, clearly systematically biasing the decision boundary and likely massively underestimating the true prevalence of these groups.
 
 ## Approach
 
@@ -40,7 +40,7 @@ Elkan & Noto (2008) calibration → P(affiliated | x)
 
 4. **High-precision ensemble.** Five LightGBM models (varying random seeds) are averaged, then filtered to cases where all five independently exceed a calibrated threshold of 0.60 — trading recall for very high precision.
 
-5. **Interpretability.** SHAP values, gain-based feature importance, and a shallow surrogate decision tree provide human-readable explanations of what the classifier learned.
+5. **Interpretability.** SHAP values, gain-based feature importance, and a shallow surrogate decision tree provide interpretable explanations of what the classifier learned, including for individual predictons.
 
 ## Repository structure
 
@@ -57,7 +57,7 @@ Elkan & Noto (2008) calibration → P(affiliated | x)
 ## Key results
 
 - The single high-precision model identifies ~1,200 organizations (0.24% of the registry) as ``likely affiliated" at a calibrated threshold of 0.85, with > 95% recall on the labeled positive set.
-- The unanimous-agreement ensemble filter produces an even more conservative set, suitable for downstream analysis where false positives are difficult to manually filter.
+- The unanimous-agreement ensemble filter produces an even more conservative set, suitable for analyses where false positives are difficult to manually filter.
 - Besides locaton, most informative features are based on keywords including in organization's registered scope of activities: terms related to cultural education, cow protection, tribal welfare, and specific organizational naming conventions dominate both SHAP and gain importance.
 
 ## Dependencies
